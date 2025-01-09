@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진행 막대</title>
+    <style>
+        .motion{
+            display: none;
+            position: absolute;
+            left: 54%;
+            width: 500px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1000;
+        }
+
+        .motion.normal{
+            background-image: url('./assets/clobotTest/normal.png');
+        }
+        .motion.fear{
+            background-image: url('./assets/clobotTest/fear.png');
+        }
+        .motion.happy{
+            background-image: url('./assets/clobotTest/happy.png');
+        }
+        .motion.sad{
+            background-image: url('./assets/clobotTest/sad.png');
+        }
+        .motion.proud{
+            background-image: url('./assets/clobotTest/proud.png');
+        }
+    </style>
+</head>
+<body >
+    <button id="start">시작</button>
+    <iframe src="" frameborder="0"></iframe>   
+    <div class="motion" id="motion"></div>
+</body>
+<style>
+
+    #start{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        z-index: 1000;
+    }
+    iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1080px;
+        height: 1638px;
+        z-index: 900;
+    }
+    
+</style>
+<script>
+    document.getElementById('start').addEventListener('click', function() {
+        document.getElementsByTagName('iframe')[0].src = './findJewerly.html';
+    });
+
+    // 자식프레임한태 메세지를 받았을때
+    window.addEventListener('message', function(event) {
+        if(event.data.type == 'content'){
+            if(event.data.value == 'start'){
+                console.log('start');
+                alert('자식 프레임(스튜디오칙) 에서 부모 프레임(클로봇) 시작 메세지를 받았습니다.');
+                
+            }
+            if(event.data.value == 'end'){
+                // alert('자식 프레임(스튜디오칙) 에서 부모 프레임(클로봇) 종료메세지를 받았습니다.');
+                setTimeout(() => {
+                    document.getElementsByTagName('iframe')[0].src = 'about:blank';
+                    // document.getElementById('motion').className = 'motion';
+                }, 1000);
+            }
+        }
+
+        if(event.data.type == 'robot'){
+            const robotObject = event.data.value;
+
+            if(robotObject.p_eye.toUpperCase() == 'NORMAL'){
+                document.getElementById('motion').className = 'motion normal';
+            }else if(robotObject.p_eye.toUpperCase() == 'FEAR'){
+                document.getElementById('motion').className = 'motion fear';
+            }else if(robotObject.p_eye.toUpperCase() == 'HAPPY'){
+                document.getElementById('motion').className = 'motion happy';
+            }else if(robotObject.p_eye.toUpperCase() == 'SAD'){
+                document.getElementById('motion').className = 'motion sad';
+            }else if(robotObject.p_eye.toUpperCase() == 'PROUD'){
+                document.getElementById('motion').className = 'motion proud';
+            }
+        }
+    });
+</script>
+</html>
