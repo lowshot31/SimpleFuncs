@@ -12,5 +12,3 @@ oneGame
 
 💎 유물에서 빠진 보석을 찾아 맞추는 게임
     직관적인 드래그 앤 드롭 인터페이스
-<a href="https://www.instagram.com/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white"/></a>
-출처: https://hulrud.tistory.com/3 [주독야독:티스토리]
