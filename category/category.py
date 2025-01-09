@@ -70,17 +70,14 @@ import oracledb
 # print_hierarchy(category_hierarchy)
 # print_category_stats(category_hierarchy)
 cs = '''
-(description= 
-(retry_count=20)(retry_delay=3)
-(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))
-(connect_data=(service_name=g66b19f3607d868_maindb_high.adb.oraclecloud.com))
-(security=(ssl_server_dn_match=yes)))'''
+your dsn
+'''
 # oracledb.init_oracle_client()
 try:
     connection = oracledb.connect (
         dsn=cs,
-        user= "gbin1" ,
-        password= "Globalinorcl1"
+        user= "id" ,
+        password= "pwd"
     )
     print("연결성공")
     cursor = connection.cursor()
