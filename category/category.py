@@ -50,20 +50,12 @@ def print_hierarchy(hierarchy):
 
 
 import oracledb
-# url: jdbc:oracle:thin:@
-# (description= 
-# (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))
-# (connect_data=(service_name=g66b19f3607d868_maindb_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes))
-#)
-# username: gbin1
-# password: Globalinorcl1
 # driver-class-name: oracle.jdbc.OracleDriver
     # (retry_count=20)(retry_delay=3)
     # (address=(protocol=tcps)(port=1522)(host=xxx.oraclecloud.com))
     # (connect_data=(service_name=xxx.adb.oraclecloud.com))
     # (security=(ssl_server_dn_match=yes)))
 
-#     filename = 'category_table.xlsx'
 # category_hierarchy = create_category_hierarchy(filename)
 # # output_filename = 'category_hierarchy_output.xlsx'
 
